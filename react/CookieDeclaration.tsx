@@ -9,11 +9,12 @@ const CookieDeclaration: FC = () => {
       return
     }
     const cbid = window.__cookiebot_id
+    const cdn = window.__cookiebot_cdn
     const script = document.createElement('script')
     script.id = 'CookieDeclaration'
     script.type = 'text/javascript'
     script.async = true
-    script.src = `https://consent.cookiebot.com/${cbid}/cd.js`
+    script.src = `https://consent.cookiebot.${cdn}/${cbid}/cd.js`
     node.appendChild(script)
   }, [])
 

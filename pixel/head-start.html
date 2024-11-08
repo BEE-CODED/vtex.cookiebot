@@ -1,1 +1,34 @@
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="{{settings.cbid}}" type="text/javascript" data-consentmode="{{settings.gcm}}" async></script>
+<!-- Google Consent - Default -->
+<script data-cookieconsent="ignore">
+  (function () {
+    if ('{{settings.edc}}' !== 'true') { return }
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    function dg(v) {
+      return v === true ? 'granted' : 'denied';
+    }
+
+    try {
+      const dc = JSON.parse(decodeURIComponent('{{settings.defaultConsent}}'));
+      gtag("consent", "default", {
+        ad_personalization: dg(dc.ad_personalization),
+        ad_storage: dg(dc.ad_storage),
+        ad_user_data: dg(dc.ad_user_data),
+        analytics_storage: dg(dc.analytics_storage),
+        functionality_storage: dg(dc.functionality_storage),
+        personalization_storage: dg(dc.personalization_storage),
+        security_storage: "granted",
+        wait_for_update: 500,
+      });
+    } catch (e) {
+      console.info(`\n%c⚠️ Error ⚠️%c \n Cookiebot application not configured.`, 'color: red; font-size: 16px;', 'color: white; font-size: 12px;');
+    }
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+  })()
+</script>
+<!-- End Google Consent - Default -->

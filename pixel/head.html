@@ -1,0 +1,17 @@
+<script>
+  const tag = document.createElement('script');
+  const attr = {
+    type: 'text/javascript',
+    src: 'https://consent.cookiebot.' + ('{{settings.cdn}}' || 'com') + '/uc.js',
+    id: 'Cookiebot',
+    'data-cbid': '{{settings.cbid}}',
+    'data-consentmode': '{{settings.gcm}}' || 'enabled',
+    async: !0
+  }
+  for (const key in attr) {
+    tag.setAttribute(key, attr[key]);
+  }
+
+  const s = document.head.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(tag, s)
+</script>

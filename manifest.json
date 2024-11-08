@@ -1,7 +1,7 @@
 {
   "name": "cookiebot",
   "vendor": "vtex",
-  "version": "2.0.8",
+  "version": "2.1.0",
   "title": "Cookiebot",
   "description": "With a few clicks configure and preview your own cookie declaration and consent dialog.",
   "billingOptions": {
@@ -11,9 +11,7 @@
     },
     "free": true,
     "type": "free",
-    "availableCountries": [
-      "*"
-    ]
+    "availableCountries": ["*"]
   },
   "builders": {
     "pixel": "0.x",
@@ -36,15 +34,70 @@
       "gcm": {
         "title": "Google Consent Mode",
         "type": "string",
-        "default": "enabled",
-        "enum": [
-          "enabled",
-          "disabled"
-        ],
-        "enumNames": [
-          "enabled",
-          "disabled"
-        ]
+        "enum": ["enabled", "disabled"],
+        "default": "enabled"
+      },
+      "cbm": {
+        "title": "Cookie blocking mode",
+        "description": "Choose between automatic or manual cookie blocking. !!! WARNING !!! Automatic cookie blocking may break your store. Use with caution!",
+        "type": "string",
+        "enum": ["auto", "manual"],
+        "default": "manual"
+      },
+      "cdn": {
+        "title": "CDN Region",
+        "description": "Choose the region where the Cookiebot script is hosted. Mind that changing the default region .com may affect functionality if you also employ CSP. Make sure to update your CSP policy accordingly (permit *.cookiebot.eu or *.cookiebot.com).",
+        "type": "string",
+        "enum": ["com", "eu"],
+        "default": "com"
+      },
+      "edc": {
+        "title": "Enable Default Consent",
+        "description": "Enable or disable the default consent mode, activating the options below",
+        "type": "boolean",
+        "default": false
+      },
+      "defaultConsent": {
+        "title": "Default Consent",
+        "type": "object",
+        "properties": {
+          "ad_storage": {
+            "title": "ad_storage",
+            "description": "Sets consent for storing and processing personal data for advertising purposes",
+            "type": "boolean",
+            "default": false
+          },
+          "analytics_storage": {
+            "title": "analytics_storage",
+            "description": "Sets consent for storing and processing personal data for analytics purposes",
+            "type": "boolean",
+            "default": false
+          },
+          "ad_user_data": {
+            "title": "ad_user_data",
+            "description": "Sets consent for sending user data related to advertising to Google",
+            "type": "boolean",
+            "default": false
+          },
+          "ad_personalization": {
+            "title": "ad_personalization",
+            "description": "Sets consent for personalized advertising",
+            "type": "boolean",
+            "default": false
+          },
+          "functionality_storage": {
+            "title": "functionality_storage",
+            "description": "Sets consent for storing and processing personal data for functionality purposes",
+            "type": "boolean",
+            "default": false
+          },
+          "personalization_storage": {
+            "title": "personalization_storage",
+            "description": "Sets consent for storing and processing personal data for personalization purposes",
+            "type": "boolean",
+            "default": false
+          }
+        }
       }
     }
   },
