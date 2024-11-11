@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [2.1.0] - 2024-11-08
+### Added
 - Admin settings that enable and configure default consent for cookies
 - Admin setting that switches Cookiebot CDN between .com and .eu [Cookiebot European CDN solution](https://support.cookiebot.com/hc/en-us/articles/4530208762396-Cookiebot-CMP-European-CDN-solution)
 
